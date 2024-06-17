@@ -11,7 +11,7 @@ class RedisClient {
       this.isConnected = true;
     });
 
-    this.Get = promisify(this.client.get).bins(this.client);
+    this.Get = promisify(this.client.get).bind(this.client);
     this.SetExp = promisify(this.client.set).bind(this.client);
     this.Del = promisify(this.client.del).bind(this.client);
   }
